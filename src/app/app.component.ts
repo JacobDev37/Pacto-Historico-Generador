@@ -9,10 +9,14 @@ export class AppComponent {
     title = 'Pacto-historico-generador';
     letters:Array<string>;
     pic:string | ArrayBuffer | null;
+    lengthName:number;
     renderName(letters:Array<string>){
         this.letters = letters;
     }
     renderPic(pic:string | ArrayBuffer | null){
         this.pic = pic;
+    }
+    nameLength(length:number){
+        this.lengthName = length;
     }
 }

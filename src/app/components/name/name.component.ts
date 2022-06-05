@@ -9,11 +9,13 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class NameComponent implements OnInit {
     info: FormGroup;
     @Output() renderName: EventEmitter<string[]>;
+    @Output() nameLength: EventEmitter<number>;
     letters:Array<string>;
 
     constructor(private builder: FormBuilder){
         this.initForm();
         this.renderName = new EventEmitter();
+        this.nameLength = new EventEmitter();
     }
     ngOnInit():void{}
 
@@ -24,5 +26,6 @@ export class NameComponent implements OnInit {
     processName(){
         this.letters = this.info.value.name.split('');
         this.renderName.emit(this.letters);
+        this.nameLength.emit(this.letters.length);
     }
 }

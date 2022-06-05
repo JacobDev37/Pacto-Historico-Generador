@@ -1,13 +1,22 @@
-<div *ngIf="pic || letters.length > 0" class="general-pic">
-    <div *ngIf="pic" class="pic-section">
-        <img class="picture" [src]="pic">
-    </div>
-    <div *ngIf="letters.length > 0" class="text-section">
-        <p class="title code has-text-info mb-0">SOY</p>
-        <div class="name-container">
-            <span *ngFor="let letter of letters; let index = index" class="code code-name has-text-primary letter has-text-{{ colorCalculator(index) }}">{{ letter }}</span>
-            <img class="logo" src="../../../assets/img/logo.svg" alt="Pacto Histórico">
+<div class="main-render is-flex is-flex-direction-column is-align-items-center">
+    <div *ngIf="pic || lengthName" class="general-pic" id="render">
+        <div *ngIf="pic" class="pic-section">
+            <img class="picture" [src]="pic">
         </div>
-        <p class="has-text-weight-bold has-text-warning">Y QUIERO QUE GUSTAVO PETRO SEA MI PRESIDENTE</p>
+        <div *ngIf="lengthName" class="text-section">
+            <p class="title code has-text-info mb-0">SOY</p>
+            <div class="name-container">
+                <span *ngFor="let letter of letters; let index = index" class="code code-name has-text-primary letter has-text-{{ colorCalculator(index) }}">{{ letter }}</span>
+                <img class="logo" src="../../../assets/img/logo.svg" alt="Pacto Histórico">
+            </div>
+            <p class="has-text-weight-bold has-text-info">Y QUIERO QUE GUSTAVO PETRO SEA MI PRESIDENTE</p>
+        </div>
     </div>
+
+    <div *ngIf="pic && lengthName" class="is-flex is-justify-content-center pt-3 pb-3">
+        <button class="button is-warning" (click)="generatePic()" (click)="step = !step" [ngClass]="{'is-hidden': step}">Procesar</button>
+        <a id="link" class="button is-success" href="" download="image" [ngClass]="{'is-hidden': !step}">Descargar</a>
+    </div>
+
+    <div id="final" class="is-hidden"></div>
 </div>

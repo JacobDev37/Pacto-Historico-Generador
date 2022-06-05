@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-render',
@@ -7,10 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RenderComponent implements OnInit {
     @Input() letters:Array<string>;
+    @Input() lengthName:number;
     @Input() pic:string | ArrayBuffer | null;
     colors:Array<string> = ['warning', 'info', 'danger', 'success', 'primary'];
     items:number = this.colors.length;
-    counter: 0;
+    step:boolean = false;
 
     constructor(){}
     ngOnInit():void{}
@@ -22,5 +24,15 @@ export class RenderComponent implements OnInit {
         }else{
             return this.colors[index];
         }
+    }
+
+    generatePic(){
+        var render = document.getElementById('render')!;
+        var final = document.getElementById('final')!;
+        var link = document.getElementById('link') as HTMLAnchorElement;
+        html2canvas(render).then(function(canvas) {
+            final.appendChild(canvas);
+            link.href = canvas.toDataURL("image/png");
+        });
     }
 }

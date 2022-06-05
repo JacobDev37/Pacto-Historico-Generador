@@ -1,4 +1,4 @@
-<main>
+<main class="mt-5 mb-5">
     <section>
         <div class="container">
             <div class="is-flex is-flex-direction-column is-align-items-center mb-6">
@@ -12,7 +12,7 @@
                             <span class="circled has-background-warning has-text-weight-bold is-size-3 has-text-white">1</span>
                             <h3 class="subtitle has-text-weight-bold ml-3">Escríbe tu nombre</h3>
                         </div>
-                        <app-name (renderName)="renderName($event)"></app-name>
+                        <app-name (renderName)="renderName($event)" (nameLength)="nameLength($event)"></app-name>
                     </div>
                 </div>
                 <div class="column is-6">
@@ -39,7 +39,7 @@
                             <span class="circled has-background-success has-text-weight-bold is-size-3 has-text-white">4</span>
                             <h3 class="subtitle has-text-weight-bold ml-3">Descarga el resultado</h3>
                         </div>
-                        <app-render [letters]="letters" [pic]="pic"></app-render>
+                        <app-render [letters]="letters" [lengthName]="lengthName" [pic]="pic"></app-render>
                     </div>
                 </div>
             </div>
