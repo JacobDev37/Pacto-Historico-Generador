@@ -1,0 +1,48 @@
+<main>
+    <section>
+        <div class="container">
+            <div class="is-flex is-flex-direction-column is-align-items-center mb-6">
+                <h1 class="title">Pacto Histórico</h1>
+                <h2 class="subtitle">Generador</h2>
+            </div>
+            <div class="columns is-multiline">
+                <div class="column is-6">
+                    <div class="box fullheight">
+                        <div class="is-flex is-align-items-center mb-3">
+                            <span class="circled has-background-warning has-text-weight-bold is-size-3 has-text-white">1</span>
+                            <h3 class="subtitle has-text-weight-bold ml-3">Escríbe tu nombre</h3>
+                        </div>
+                        <app-name (renderName)="renderName($event)"></app-name>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box fullheight">
+                        <div class="is-flex is-align-items-center mb-3">
+                            <span class="circled has-background-info has-text-weight-bold is-size-3 has-text-white">2</span>
+                            <h3 class="subtitle has-text-weight-bold ml-3">Carga una foto</h3>
+                        </div>
+                        <app-image (renderPic)="renderPic($event)"></app-image>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box fullheight">
+                        <div class="is-flex is-align-items-center mb-3">
+                            <span class="circled has-background-danger has-text-weight-bold is-size-3 has-text-white">3</span>
+                            <h3 class="subtitle has-text-weight-bold ml-3">Haz algunos ajustes</h3>
+                        </div>
+                        <app-settings></app-settings>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box fullheight">
+                        <div class="is-flex is-align-items-center mb-3">
+                            <span class="circled has-background-success has-text-weight-bold is-size-3 has-text-white">4</span>
+                            <h3 class="subtitle has-text-weight-bold ml-3">Descarga el resultado</h3>
+                        </div>
+                        <app-render [letters]="letters" [pic]="pic"></app-render>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

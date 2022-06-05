@@ -1,0 +1,13 @@
+<div *ngIf="pic || letters.length > 0" class="general-pic">
+    <div *ngIf="pic" class="pic-section">
+        <img class="picture" [src]="pic">
+    </div>
+    <div *ngIf="letters.length > 0" class="text-section">
+        <p class="title code has-text-info mb-0">SOY</p>
+        <div class="name-container">
+            <span *ngFor="let letter of letters; let index = index" class="code code-name has-text-primary letter has-text-{{ colorCalculator(index) }}">{{ letter }}</span>
+            <img class="logo" src="../../../assets/img/logo.svg" alt="Pacto Histórico">
+        </div>
+        <p class="has-text-weight-bold has-text-warning">Y QUIERO QUE GUSTAVO PETRO SEA MI PRESIDENTE</p>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<form [formGroup]="info" (ngSubmit)="processName()">
+    <div class="field">
+        <div class="control">
+            <input class="input" type="text" placeholder="Tu nombre" formControlName="name" (keyup)="processName()">
+        </div>
+    </div>
+</form>
